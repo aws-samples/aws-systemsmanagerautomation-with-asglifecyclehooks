@@ -3,43 +3,43 @@
     "Parameters": {
         "AutoScalingGN": {
             "Type": "String",
-            "Description": "(Required) Enter the name of the AutoScalingGroup"
+            "Description": "(Required) Enter the name of the AutoScalingGroup."
         },
         "LifecycleHookName": {
             "Type": "String",
             "Default": "LCH_EC2_INSTANCE_TERMINATING",
-            "Description": "The name of the LifecycleHook"
+            "Description": "(Required) The name of the LifecycleHook."
         },
         "HeartbeatTimeout": {
             "Type": "String",
             "Default": "7200",
-            "Description": "HeartbeatTimeout timeout in seconds. Default is 7200"
+            "Description": "(Required) HeartbeatTimeout timeout in seconds."
         },
         "CloudWatchEventName": {
             "Type": "String",
-            "Default": "RunSSMAutomationforAutoScalingBeforeTermination",
-            "Description": "The name of the CloudWatch Event Rule"
+			"Default": "RunSSMAutomationforAutoScalingBeforeTermination",
+            "Description": "(Required) The name of the CloudWatch Event Rule."
         },
         "CloudWatchEventDescription": {
             "Type": "String",
-            "Default": "CloudWatch Event rule that will trigger SSM Automation document when an instance go in Terminate:wait. This is created as a part of a CloudFormation",
-            "Description": "The description of the CloudWatch Event rule"
+            "Default": "CloudWatch Event rule that will trigger AWS Systems Manager Automation document when an instance go in Terminate:wait. This is created as a part of a CloudFormation.",
+            "Description": "(Optional) The description of the CloudWatch Event rule"
         },
         "ExistingCloudWatchEventRole": {
             "Type": "String",
-            "Description": "(Optional) The Role ARN to be used by CloudWatch event to trigger the AWS Systems Manager Automation Document"
+            "Description": "(Optional) The Role ARN to be used by CloudWatch event to trigger the AWS Systems Manager Automation execution.If not specified, the template will create a rule with minimum permissions."
         },
         "DomainUserName": {
             "Type": "String",
-            "Description": "The name of the string Parameter for the Domainuser. The user would need to have enough permissions to remove the computer from the domain."
+            "Description": "(Required) The name of the string Parameter for the Domainuser. The user would need to have enough permissions to remove the computer from the domain."
         },
         "DomainPassword": {
             "Type": "String",
-            "Description": "The name of the Secure Parameter that have the password of DomainUserName"
+            "Description": "(Required) The name of the Secure Parameter that have the password of DomainUserName."
         },
         "ExistingAutomationAssumeRole": {
             "Type": "String",
-            "Description": "(Optional) The ARN of the role that allows Automation to perform the actions."
+            "Description": "(Optional) The ARN of the role that allows AWS Systems Manager Automation execution to perform the actions in the document. If not specified, the template will create a rule with minimum permissions."
         }
     },
     "Conditions": {
