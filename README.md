@@ -1,6 +1,6 @@
 # Run code before terminating an EC2 Auto Scaling instance
 
-CloudFormation template related to [this blog]() published on the AWS [Infrastructure & Automation blog](https://aws.amazon.com/blogs/infrastructure-and-automation/)
+CloudFormation template related to [this blog](https://aws.amazon.com/blogs/infrastructure-and-automation/run-code-before-terminating-an-ec2-auto-scaling-instance/) published on the AWS [Infrastructure & Automation blog](https://aws.amazon.com/blogs/infrastructure-and-automation/)
 
 ## Overview
 This is a sample solution using [Amazon EC2 Auto Scaling Lifecycle Hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html) to perform any desired actions before terminating the instance within the Auto Scaling group. [lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html#adding-lifecycle-hooks) puts the instance in `Terminating:Wait` status. The `Terminating:Wait` status will be monitored by an Amazon CloudWatch event, which triggers an AWS Systems Manager automation document to perform the action you want.
