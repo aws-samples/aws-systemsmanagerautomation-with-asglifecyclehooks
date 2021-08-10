@@ -63,6 +63,7 @@
     "Resources": {
         "CloudWatchEventRole": {
             "Type": "AWS::IAM::Role",
+            "DeletionPolicy": "Delete",
             "Condition": "CreateCloudWatchEventRoleCondition",
             "Properties": {
                 "AssumeRolePolicyDocument": {
@@ -132,6 +133,7 @@
         },
         "AutomationAssumeRole": {
             "Type": "AWS::IAM::Role",
+            "DeletionPolicy": "Delete",
             "Condition": "CreateAutomationAssumeRoleCondition",
             "Properties": {
                 "AssumeRolePolicyDocument": {
@@ -210,6 +212,7 @@
         },
         "CreateLifeCycleHook": {
             "Type": "AWS::AutoScaling::LifecycleHook",
+            "DeletionPolicy": "Delete",
             "Properties": {
                 "AutoScalingGroupName": {
                     "Ref": "AutoScalingGN"
@@ -226,6 +229,7 @@
         },
         "SSMAutomationDocument": {
             "Type": "AWS::SSM::Document",
+            "DeletionPolicy": "Delete",
             "Properties": {
                 "DocumentType": "Automation",
                 "Content": {
@@ -340,6 +344,7 @@
         },
         "CreateCloudWatchEvent": {
             "Type": "AWS::Events::Rule",
+            "DeletionPolicy": "Delete",
             "Properties": {
                 "Description": {
                     "Ref": "CloudWatchEventDescription"
