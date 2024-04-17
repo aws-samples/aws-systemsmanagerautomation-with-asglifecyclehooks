@@ -7,12 +7,11 @@
         },
         "DomainUserName": {
             "Type": "String",
-            "Description": "(Required) The name of the string Parameter for the DomainUser. The user would need to have enough permissions to remove the computer from the domain."
+            "Description": "(Required) The name of the String parameter for the DomainUser. The user would need to have enough permissions to remove the computer from the domain."
         },
         "DomainPassword": {
             "Type": "String",
-            "NoEcho" : "true",
-            "Description": "(Required) The name of the Secure Parameter that have the password of DomainUserName."
+            "Description": "(Required) The name of the SecureString parameter that have the password of DomainUserName."
         },
         "ExistingAutomationAssumeRole": {
             "Type": "String",
