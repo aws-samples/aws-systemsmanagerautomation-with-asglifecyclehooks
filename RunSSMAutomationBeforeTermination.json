@@ -71,9 +71,10 @@
                                     "Action": [
                                         "ssm:StartAutomationExecution"
                                     ],
-                                    "Resource": {
-                                        "Fn::Sub": "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${SSMAutomationDocument}:$DEFAULT"
-                                    }
+                                    "Resource": [
+                                        "Fn::Sub": "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${SSMAutomationDocument}",
+                                        "Fn::Sub": "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*"
+                                    ]
                                 }
                             ]
                         },
@@ -278,7 +279,8 @@
                                         "Write-Output \"Removing computer $name from the domain\"",
                                         "Remove-Computer -ComputerName $name -Credential $credential -PassThru -Restart -Force}",
                                         "else{",
-                                        "Write-Output \"Cannot remove computer $name because it is not in a domain\"}"
+                                        "Write-Output \"Cannot remove computer $name because it is not in a domain\"",
+                                        "exit 1}"
                                     ]
                                 }
                             }
